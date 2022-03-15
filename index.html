@@ -9,11 +9,13 @@
     </head>
     <body>
         <div id="app">
-            <img :src="picture" :class="gender" :alt="'${minute}:${second}'"><img>
-            <h1>{{minute}}:{{second}}</h1>
-            <!-- <button v-on:click="getuser()" :class="gender">Start</button> -->
+            <img :src="picture" :class="gender" :alt="'${minutes}:${secondes}'"><img>
+            <!-- <h1>{{minute}}:{{second}}</h1> -->
+            <input type="number" v-model="minutes" name="countdown_m" id="min" min="0" max="120">
+            <input type="number" v-model="secondes" name="countdown_s" id="sec" max="59" min="0">
+            <button v-if="!timer" v-on:click="start" :class="gender">Start</button>
+            <button v-if="!countdown" v-on:click="stopPlay" :class="gender">Stop Playing</button>
         </div>
-
         <script src="https://unpkg.com/vue@3"></script>
         <script src="app.js"></script>
     </body>
